@@ -95,11 +95,8 @@ else:
 api_data = requests.get("http://swapi.dev/api/people/46")
 name = api_data.json()['name']
 
-# Afficher le résultat sur l'écran ePaper
-writetext(fb, texgyread_L, 15, 40, name)
-epd.display_frame(buf)
-time.sleep(2)
+# Afficher le résultat sur l'écran ePaper, en deux étapes
 
-# Rafraîchir l'écran ePaper
-epd.display(epd.getbuffer(Himage))
+writetext(fb, texgyread_L, 15, 40, name) # ajouter le texte au tampon 
+epd.display_frame(buf) # rafraîchir l'écran
 time.sleep(2)
